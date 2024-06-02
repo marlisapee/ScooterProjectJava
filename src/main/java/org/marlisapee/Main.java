@@ -11,8 +11,8 @@ public class Main {
         var user2 = app.registerUser("janedoe", "password", (short)30);
 
         // login new user
-        user.login("password");
-        user2.login("password");
+        app.loginUser(user.getUsername(), user.getPassword());
+        app.loginUser(user2.getUsername(), user2.getPassword());
 
         // create new scooter
         var scooter = app.createScooter("Brooklyn");
@@ -21,6 +21,8 @@ public class Main {
         // rent new scooter to user
         scooter.rent(user);
         scooter2.rent(user2);
+
+        app.logoutUser(user);
 
         app.print();
     }

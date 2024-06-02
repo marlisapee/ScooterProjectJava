@@ -33,6 +33,12 @@ public class Scooter {
         System.out.println(STR."Scooter has been docked successfully at \{station}");
     }
 
+    public void recharge(){
+        if(this.charge < 100){
+            this.charge = 100;
+        }
+    }
+
     public int getSerial() {
         return serial;
     }

@@ -12,22 +12,20 @@ public class User {
         this.age = age;
     }
 
-    public User login(String password){
+    public void login(String password){
         if(this.password.equals(password)){
             this.isLoggedIn = true;
             System.out.println(STR."\{this.username} successfully logged in...");
-            return this;
         }
         else {
             System.out.println("Wrong password...");
-            return null;
         }
 
     }
 
-    public String logout(){
+    public void logout(){
         this.isLoggedIn = false;
-        return "Logged out successfully";
+        System.out.println(STR."\{this.getUsername()} logged out successfully...");
     }
 
     public String getUsername() {

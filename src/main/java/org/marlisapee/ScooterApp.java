@@ -36,16 +36,35 @@ public class ScooterApp {
         return newUser;
    }
 
+   public User loginUser(String username, String password){
+        for(User user : registeredUsers){
+            if(user.getUsername().equals(username)){
+                user.login(password);
+                return user;
+            }
+        }
+        System.out.println("User not registered...");
+        return null;
+   }
+
+   public void logoutUser(User user){
+        for(User registeredUser : registeredUsers){
+            if(registeredUser.getUsername().equals(user.getUsername())){
+                user.logout();
+            }
+        }
+   }
+
    public void print(){
        System.out.println("**********************");
        System.out.println("_____Registered Users_____");
        for(User user : registeredUsers)
-           System.out.println("User: " + user.getUsername());
+           System.out.println(STR."User: \{user.getUsername()}");
 
        System.out.println("**********************");
        System.out.println("_____Scooters_____");
        for(Scooter scooter: scooters)
-           System.out.println("Scooter: #" + scooter.getSerial() + " Charge: " + scooter.getCharge());
+           System.out.println(STR."Scooter: #\{scooter.getSerial()} Charge: \{scooter.getCharge()}");
 
    }
 }
